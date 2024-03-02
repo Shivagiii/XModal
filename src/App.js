@@ -23,7 +23,9 @@ function App() {
     const d = new Date();
     const dd=new Date(`${data.date}`);
     console.log(data.nub.length);
-    if(data.nub.length<10)
+    if(!data.email.includes('@'))
+    alert('Invalid email')
+    else if(data.nub.length<10)
     alert('Invalid phone number. Please enter a 10-digit phone number.')
     else if(d<dd)
     alert('Invalid date of birth.Date of birth cannot be in future.')
@@ -56,13 +58,13 @@ useEffect(() =>
           <div className="modal-content">
             <form onSubmit={handleSubmit}>
               <h1>Form Details</h1>
-              <label for='username'>Username:</label>
+              <label for="username">Username:</label>
               <input required id="username" type="text" onChange={handleChange} value={data.username} name="username"/>
-              <label for='email'>Email Address:</label>
-              <input required id="email" type="email" onChange={handleChange} value={data.email} name="email"/>
-              <label for='phone'>Phone Number:</label>
+              <label for="email">Email Address:</label>
+              <input required id="email" type="text" onChange={handleChange} value={data.email} name="email"/>
+              <label for="phone">Phone Number:</label>
               <input required id="phone" type="number" onChange={handleChange} value={data.nub} name="nub"/>
-              <label for='dob'>Date Of Birth:</label>
+              <label for="dob">Date Of Birth:</label>
               <input required id="dob" type="date" onChange={handleChange} value={data.date} name="date"/>
               <button type="submit">Submit</button>
             </form>
