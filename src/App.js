@@ -41,17 +41,18 @@ function App() {
 
 
   }
-var modal;
+var modal ;//= document.getElementById("myModal");
 useEffect(() =>
 { modal = document.getElementById("myModal");
-}
-)
-
 window.onclick = function(event) {
   if (event.target === modal) {
     modal.style.display = "none";
   }
 }
+}
+)
+
+
 
   return (
     <div className="App">
