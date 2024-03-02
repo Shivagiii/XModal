@@ -66,7 +66,7 @@ useEffect(() =>
               <input required id="phone" type="number" onChange={handleChange} value={data.nub} name="nub"/>
               <label for="dob">Date Of Birth:</label>
               <input required id="dob" type="date" onChange={handleChange} value={data.date} name="date"/>
-              <button type="submit">Submit</button>
+              <button type="submit" className="submit-button">Submit</button>
             </form>
           </div>
         </div>
