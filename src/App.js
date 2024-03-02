@@ -48,7 +48,7 @@ useEffect(() =>
 )
 
 window.onclick = function(event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 }
@@ -58,7 +58,7 @@ window.onclick = function(event) {
       <h1>User Details Modal</h1>
       <button id="myBtn" onClick={() => modal.style.display = "block"} >Open Form</button>
       
-        <div className="modal " id="myModal" >
+        <div className="modal" id="myModal" >
           <div className="modal-content">
             <form onSubmit={handleSubmit}>
               <h1>Form Details</h1>
