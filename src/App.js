@@ -30,6 +30,7 @@ function App() {
     else if(d<dd)
     alert('Invalid date of birth.Date of birth cannot be in future.')
   else{
+   
     setData({
       username:'',
       email:'',
@@ -41,40 +42,44 @@ function App() {
 
 
   }
-var modal ;//= document.getElementById("myModal");
+var modal ;
 useEffect(() =>
 { modal = document.getElementById("myModal");
 window.onclick = function(event) {
   if (event.target === modal) {
-    modal.style.display = "none";
+    setClicked(false)
+   // modal.style.display = "none";
   }
 }
 }
 )
 
 
-
+//modal.style.display = "block"
   return (
     <div className="App">
       <h1>User Details Modal</h1>
-      <button id="myBtn" onClick={() => modal.style.display = "block"} >Open Form</button>
+      <button id="myBtn" onClick={() => setClicked(true)} >Open Form</button>
+      {clicked ? 
+  <div className="modal" id="myModal" >
+  <div className="modal-content">
+    <form onSubmit={handleSubmit}>
+      <h1>Form Details</h1>
+      <label for="username">Username:</label>
+      <input required id="username" type="text" onChange={handleChange} value={data.username} name="username"/>
+      <label for="email">Email Address:</label>
+      <input required id="email" type="text" onChange={handleChange} value={data.email} name="email"/>
+      <label for="phone">Phone Number:</label>
+      <input required id="phone" type="number" onChange={handleChange} value={data.nub} name="nub"/>
+      <label for="dob">Date Of Birth:</label>
+      <input required id="dob" type="date" onChange={handleChange} value={data.date} name="date"/>
+      <button type="submit" className="submit-button">Submit</button>
+    </form>
+  </div>
+</div>
+      : <></>}
       
-        <div className="modal" id="myModal" >
-          <div className="modal-content">
-            <form onSubmit={handleSubmit}>
-              <h1>Form Details</h1>
-              <label for="username">Username:</label>
-              <input required id="username" type="text" onChange={handleChange} value={data.username} name="username"/>
-              <label for="email">Email Address:</label>
-              <input required id="email" type="text" onChange={handleChange} value={data.email} name="email"/>
-              <label for="phone">Phone Number:</label>
-              <input required id="phone" type="number" onChange={handleChange} value={data.nub} name="nub"/>
-              <label for="dob">Date Of Birth:</label>
-              <input required id="dob" type="date" onChange={handleChange} value={data.date} name="date"/>
-              <button type="submit" className="submit-button">Submit</button>
-            </form>
-          </div>
-        </div>
+      
       
     </div>
   );
